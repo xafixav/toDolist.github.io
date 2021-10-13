@@ -79,6 +79,7 @@ getButton.addEventListener('click', addList);
 getButtonEraseAll.addEventListener('click', eraseList);
 getButtonErase.addEventListener('click', removeCompleted);
 
+
 window.onload = () => {
   if (localStorage.getItem('lista') !== null) {
     addOnLoad();
