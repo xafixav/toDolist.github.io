@@ -3,7 +3,6 @@ const getInput = document.getElementById('texto-tarefa');
 const getButton = document.getElementById('criar-tarefa');
 const getButtonEraseAll = document.getElementById('apaga-tudo');
 const getButtonErase = document.getElementById('remover-finalizados');
-const getSaveTaskList = document.getElementById('salvar-tarefas');
 
 let listArray;
 if (localStorage.getItem('lista') === null) {
@@ -38,6 +37,7 @@ function removeCompleted() {
   });
   const storageList = localStorage.getItem('lista').split(',');
   listArray = storageList.filter((value) => !completedArray.includes(value));
+  localStorage.setItem('lista', listArray);
 }
 
 function eraseList() {
@@ -62,7 +62,8 @@ function addList() {
     alert('List cannot have double items');
   } else {
     createItem(getTarefasValue);
-    listArray.push(getTarefasValue);    
+    listArray.push(getTarefasValue); 
+    localStorage.setItem('lista', listArray);  
   }
   getInput.value = '';
 }
@@ -74,18 +75,9 @@ function addOnLoad() {
   });
 }
 
-function saveList() {
-  if (localStorage.getItem('lista') !== undefined) {
-    localStorage.setItem('lista', listArray);
-  } else {
-    localStorage.removeItem('lista');
-  }
-}
-
 getButton.addEventListener('click', addList);
 getButtonEraseAll.addEventListener('click', eraseList);
 getButtonErase.addEventListener('click', removeCompleted);
-getSaveTaskList.addEventListener('click', saveList);
 
 window.onload = () => {
   if (localStorage.getItem('lista') !== null) {
