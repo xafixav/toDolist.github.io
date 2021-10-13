@@ -60,7 +60,7 @@ function addList() {
   const getTarefasValue = getInput.value;
   if (avoidDoubleItems(getTarefasValue) === true) {
     alert('List cannot have double items');
-  } else {
+  } else if (getTarefasValue !== ''){
     createItem(getTarefasValue);
     listArray.push(getTarefasValue); 
     localStorage.setItem('lista', listArray);  
