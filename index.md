@@ -1,1 +1,1 @@
-https://xafixav.github.io/toDolist.github.io/index3.html
+https://xafixav.github.io/toDolist.github.io/projects/toDoList/index3.html
